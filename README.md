@@ -1,6 +1,6 @@
 # flutter_shop
 
-A new Flutter project.
+A new Flutter shop project.
 
 ## Getting Started
 
