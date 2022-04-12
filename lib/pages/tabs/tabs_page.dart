@@ -41,7 +41,7 @@ class _TabsPageState extends State<TabsPage> {
               icon: Icon(Icons.shopping_cart), label: "购物车"),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: "我的"),
         ],
-        fixedColor: Colors.red,
+        // fixedColor: Colors.red,
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (index) {
