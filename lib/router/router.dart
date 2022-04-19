@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shop/pages/shop_list_page.dart';
 import 'package:flutter_shop/pages/tabs/tabs_page.dart';
 
 final Map<String, WidgetBuilder> routers = {
   "/": (context) => TabsPage(),
+  "/shop_list": (context, {arguments}) => ShopListPage(arguments),
 };
 
 var onGenerateRoute = (RouteSettings settings) {

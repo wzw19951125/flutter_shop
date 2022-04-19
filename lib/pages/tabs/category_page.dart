@@ -31,7 +31,7 @@ class _CategoryPageState extends State<CategoryPage>
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("分类"),
+        title: Text("商品分类"),
       ),
       body: Container(
         child: Row(
@@ -114,24 +114,33 @@ class _CategoryPageState extends State<CategoryPage>
               crossAxisSpacing: 10,
               mainAxisSpacing: 10),
           itemBuilder: (context, index) {
-            return Container(
-              width: (rightWidth - 40) / 3,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black26),
-                color: Colors.white,
-              ),
-              child: Column(
-                children: [
-                  AspectRatio(
-                    aspectRatio: 1 / 1,
-                    child: cachedImage(
-                        "${Config.DOMAIN}${_rightData[index].pic.replaceAll("\\", "/")}"),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text("${_rightData[index].title}")
-                ],
+            return InkWell(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  "/shop_list",
+                  arguments: {"sid": _rightData[index].sId},
+                );
+              },
+              child: Container(
+                width: (rightWidth - 40) / 3,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black26),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 1 / 1,
+                      child: cachedImage(
+                          "${Config.DOMAIN}${_rightData[index].pic.replaceAll("\\", "/")}"),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text("${_rightData[index].title}")
+                  ],
+                ),
               ),
             );
           }),
